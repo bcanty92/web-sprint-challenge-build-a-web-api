@@ -12,7 +12,7 @@ server.use("/api/actions", actionsRouter);
 
 server.get("/", (req, res) => {
     res.send(`
-        <h1>Welcome to the the dark side!</h1>
+        <h1>Welcome to the dark side!</h1>
         <p>where all your dreams come true!</p>
       `);
   });
