@@ -1,7 +1,19 @@
-const express = require('express');
+const express = require("express");
 const server = express();
+const helmet = require("helmet");
+const projectsRouter = require("./projects/projects-router");
+const actionsRouter = require("./actions/actions-router");
 
-// Complete your server here!
-// Do NOT `server.listen()` inside this file!
+server.use(express.json());
+server.use(helmet());
 
-module.exports = server;
+server.use("/api/projects", projectsRouter);
+server.use("/api/actions", actionsRouter);
+
+server.get("/", (req, res) => {
+    res.send(`
+        <h1>Welcome to the the dark side!</h1>
+        <p>where all your dreams come true!</p>
+      `);
+  });
+  module.exports = server;
